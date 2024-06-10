@@ -6,12 +6,14 @@ const users = [
 
 const generateUserId = () => (users.length + 1).toString();
 
+// ajouter un utilisateur
 const addUser = (_, { name, email, age, city }) => {
   const newUser = { id: generateUserId(), name, email, age, city };
   users.push(newUser);
   return newUser;
 };
 
+// les résolveurs
 const resolvers = {
   Query: {
     user: (_, { id }) => users.find(user => user.id === id),
